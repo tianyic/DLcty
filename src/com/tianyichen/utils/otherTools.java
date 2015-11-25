@@ -16,6 +16,7 @@ public class otherTools {
 		
 		// randomly generate a batch index
 		int batch_index=rng.nextInt(batch_num);
+		//System.out.println(batch_index);
 		List<Integer> rowIndex_tmp=new ArrayList<Integer>();
 		
 		for(int i=0;i<batch_size;i++){

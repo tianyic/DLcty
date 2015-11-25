@@ -137,7 +137,7 @@ public class RBM {
 		return tilde_v;
 	}
 	
-	
+	// assume size of v_samples is the same as inputdata in this function
 	public RealMatrix sampleHsgivenVs(RealMatrix v_samples){
 		//System.out.println(this.n_hidden);
 		RealMatrix Hs=MatrixUtils.createRealMatrix(this.n_hidden, v_samples.getRowDimension());
