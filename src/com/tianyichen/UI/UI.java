@@ -1,11 +1,14 @@
 package com.tianyichen.UI;
 
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 
 import org.apache.commons.math3.linear.RealMatrix;
 
 import com.tianyichen.DBN.DBN;
+import com.tianyichen.MLP.MLP;
 import com.tianyichen.RBM.RBM;
 import com.tianyichen.dao.DataStream;
 import com.tianyichen.utils.otherTools;
@@ -74,16 +77,33 @@ public class UI {
 		
 
 		/****** test DBN**********/
-		int training_epoches=10;
+//		int training_epoches=10;
+//		int batch_size=111;
+//		int K=1;
+//		int pre_training_epoches=10;
+//		int[] hiddensizes={num_features/2,num_features*2};
+//		//int[] hiddensizes={num_features/2};
+//		double alpha=0.1;
+//		DBN dbn=new DBN(num_features,hiddensizes,2,K,pre_training_epoches,alpha);
+//		// pretraining RBMs.
+//		dbn.pretraining(X, batch_size);
+	
+		/***********test MLP **************/
+		int training_epoches=1000;
+		int pretrainingepoch=10;
 		int batch_size=111;
-		int K=1;
-		int pre_training_epoches=10;
-		int[] hiddensizes={num_features/2,num_features*2};
-		//int[] hiddensizes={num_features/2};
-		double alpha=0.1;
-		DBN dbn=new DBN(num_features,hiddensizes,2,K,pre_training_epoches,alpha);
-		// pretraining RBMs.
-		dbn.pretraining(X, batch_size);
+		//int[] hiddensizes={num_features/2,num_features*2};
+		double lr=0.3; // learning rate of MLP
+		double alpha=0.1; // learning rate of DBN pretraining
+		int K=10;
+
+		int[] hiddensizes={14,14}; // hidden layer sizes.
+		MLP mlp=new MLP(X,num_features,hiddensizes,2,true,lr,batch_size,pretrainingepoch,alpha,K);
+		mlp.train(X, Y, batch_size, training_epoches);
+
+		
+	
+	
 	}	
 
 }

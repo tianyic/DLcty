@@ -56,6 +56,13 @@ public class Scalar {
 		return m;
 	}
 	
+	public static RealMatrix sigmoidprime(RealMatrix sigmoid_activation){
+		
+		RealMatrix m=MatrixUtils.createRealMatrix(sigmoid_activation.getRowDimension(), sigmoid_activation.getColumnDimension());
+		m=multiply(sigmoid(sigmoid_activation),sigmoid(sigmoid_activation).scalarMultiply(-1).scalarAdd(1));
+		return m;
+	}	
+	
 	// sample from bernulli elementwise
 	public static RealMatrix sampleBio(RealMatrix p_vector){
 		RealMatrix sample_vector=MatrixUtils.createRealMatrix(p_vector.getRowDimension(), p_vector.getColumnDimension());

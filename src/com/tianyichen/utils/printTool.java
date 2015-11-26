@@ -1,5 +1,7 @@
 package com.tianyichen.utils;
 
+import org.apache.commons.math3.linear.RealMatrix;
+
 public class printTool {
 	
 	public static void matrix(double[][] m){
@@ -22,6 +24,9 @@ public class printTool {
 		System.out.println();
 	}
 	
-	
+	public static void shape(RealMatrix matrix){
+		System.out.println("matrix shape:");
+		System.out.println("nrows:"+matrix.getRowDimension()+" , ncol:"+matrix.getColumnDimension());
+	}
 
 }
