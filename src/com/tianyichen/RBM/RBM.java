@@ -250,12 +250,7 @@ public class RBM {
 		
 	}
 	
-	public RealMatrix freeEnergy(RealMatrix vm_sample){
-		// dimension of vm_sample is features by batch size
-		// dimension of W is visible features by hidden features
-		RealMatrix wx=vm_sample.transpose().multiply(this.W);
-		return null;
-	}
+
 
 	public RealMatrix getW() {
 		return W;
