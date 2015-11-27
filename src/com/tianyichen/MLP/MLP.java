@@ -140,7 +140,7 @@ public class MLP {
 			//System.out.print(maxindex+" ");
 		}
 		double accuracy=correctCount/(double)output_v.getColumnDimension();
-		System.out.println("accuracy is:"+accuracy);
+		System.out.println("predict accuracy is:"+accuracy);
 		return output_v;
 	}
 	
