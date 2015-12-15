@@ -1,0 +1,2 @@
+javac -classpath ".:code/DLcty.jar:code/commons-math3-3.5.jar:" code/src/testDBN.java
+java -cp ".:code/src:code/DLcty.jar:code/commons-math3-3.5.jar:" testDBN
