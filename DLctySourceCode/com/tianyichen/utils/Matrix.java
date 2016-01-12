@@ -21,6 +21,14 @@ public class Matrix {
 			}
 			RealMatrix rowmean=MatrixUtils.createColumnRealMatrix(rmean);
 			return rowmean;
+		}else if(option==2){
+			double[] cmean=new double[matrix.getColumnDimension()];
+			for(int i=0;i<matrix.getColumnDimension();i++){
+				double[] column=matrix.getColumn(i);
+				cmean[i]=sum(column)/(double) matrix.getRowDimension();
+			}
+			RealMatrix colmean=MatrixUtils.createColumnRealMatrix(cmean);
+			return colmean;
 		}
 		return null;
 		
@@ -55,5 +63,65 @@ public class Matrix {
 			m.setColumn(i, matrix.getColumnMatrix(i).add(conlumn).getColumn(0));
 		}
 		return m;
+	}
+	
+	public static double[] colMeans(RealMatrix matrix){
+		double[] means=new double[matrix.getColumnDimension()];
+		for(int i=0;i<matrix.getColumnDimension();i++){
+			means[i]=mean(matrix.getColumn(i));
+		}
+		
+		return means;
+	}
+	
+	public static double[] rowMeans(RealMatrix matrix){
+		double[] means=new double[matrix.getRowDimension()];
+		
+		for(int i=0;i<matrix.getRowDimension();i++){
+			means[i]=mean(matrix.getRow(i));
+		}
+		
+		return means;		
+	}
+	
+	public static double mean(double[] array ){
+		double mean=0.0;
+		for(int i=0;i<array.length;i++){
+			mean+=array[i]/(double)array.length;
+		}
+		return mean;
+	}
+	
+	public static double[] colVariances(RealMatrix matrix){
+		double[] var=new double[matrix.getColumnDimension()];
+		for(int i=0;i<matrix.getColumnDimension();i++){
+			var[i]=variance(matrix.getColumn(i));
+		}
+		return var;
+	}
+	
+	public static double[] rowVariances(RealMatrix matrix){
+		
+		double[] var=new double[matrix.getRowDimension()];		
+		for(int i=0;i<matrix.getRowDimension();i++){
+			var[i]=variance(matrix.getRow(i));
+		}
+		
+		return var;		
+	}
+	
+	public static double variance(double[] array){
+		
+		double variance=0.0;
+		double mean=mean(array);
+		
+		for(int i=0;i<array.length;i++){
+			
+			variance+=Math.pow(array[i]-mean, 2)/(double)array.length;
+		
+		}
+		
+		return variance;
+		
 	}
 }
