@@ -1,15 +1,6 @@
 # Deep Learning Java Library: DLcty
 
-#### Including 
--- RBM(binary Restricted Boltzmann Machine),
-
--- Continues RBM
-
--- DBN(binary Deep Belief Network)
-
--- Continues DBN 
-
--- MLP(Multilayer Perceptron) with/ without DBN pretraining
+#### Including RBM(binary Restricted Boltzmann Machine),Continues RBM, DBN(binary Deep Belief Network), Continues DBN , MLP(Multilayer Perceptron) with/ without DBN pretraining
 
 --Copyright Tianyi Chen, PhD @Johns Hopkins University
 
